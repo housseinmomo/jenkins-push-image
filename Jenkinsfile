@@ -10,7 +10,7 @@ node {
     def img = stage("Build") {
         docker.build("$imageProject" , ".")
         sh 'docker ps -a'
-    }
+    };
 
     stage("Run") {
         img.withRun("--name run-$BUILD_ID -p 80:80") { c -> 
