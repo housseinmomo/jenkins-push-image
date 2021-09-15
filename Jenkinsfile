@@ -1,14 +1,15 @@
 node {
     def registeryProject = "mugen-project/container_registry"
     def imageProject = "${registeryProject}:version-${env.BUILD_ID}"
+    def img
 
     stage("Checkout") {
         checkout scm
     }
 
     // img : contient l'image qui sera creer au cours de cette etape
-    def img 
-    stage("Build") {
+     
+    img = stage("Build") {
         docker.build("$imageProject" , ".")
         sh 'docker ps -a'
     }
