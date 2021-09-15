@@ -14,8 +14,10 @@ node {
     }
 
     stage("Run") {
-        img.withRun("--name image-push-$BUILD_ID -p 8081:90") { c -> 
-            sh 'localhost:8081'
+       docker.image(img).withRun('-p 9090:80') {
+            c -> 
+                sh 'docker ps'
+                sh 'curl localhost:9090'
         }
     }
 
