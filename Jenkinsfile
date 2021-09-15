@@ -7,9 +7,9 @@ node {
     }
 
     // // img : contient l'image qui sera creer au cours de cette etape
-    // def img = stage("Build") {
-    //      docker.Build('fist-image-push')
-    // }
+    def img = stage("Build") {
+         docker.Build("$registeryProject")
+    }
 
     // stage("Run") {
     //     img.withRun("--name run-$BUILD_ID -p 80:80") { c -> 
