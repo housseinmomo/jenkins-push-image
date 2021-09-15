@@ -7,10 +7,11 @@ node {
     }
 
     // img : contient l'image qui sera creer au cours de cette etape
-    def img = stage("Build") {
+    def img 
+    stage("Build") {
         docker.build("$imageProject" , ".")
         sh 'docker ps -a'
-    };
+    }
 
     stage("Run") {
         img.withRun("--name run-$BUILD_ID -p 80:80") { c -> 
@@ -31,3 +32,5 @@ node {
 //step 1 : login as gitlab user => docker login registry.gitlab.com (username - password)
 //step 2 : create image 
 //step 3 : push une image sur gitlab container registery : docker push registry.gitlab.com/abdoulfatah12/mugen-project 
+
+// stage : renvoie un pointeur null
