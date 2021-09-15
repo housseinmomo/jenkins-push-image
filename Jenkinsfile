@@ -6,23 +6,23 @@ node {
         checkout scm
     }
 
-    // img : contient l'image qui sera creer au cours de cette etape
-    def img = stage("Build") {
-         docker.Build('fist-image-push')
-    }
+    // // img : contient l'image qui sera creer au cours de cette etape
+    // def img = stage("Build") {
+    //      docker.Build('fist-image-push')
+    // }
 
-    stage("Run") {
-        img.withRun("--name run-$BUILD_ID -p 80:80") { c -> 
-            sh 'curl localhost'
-        }
-    }
+    // stage("Run") {
+    //     img.withRun("--name run-$BUILD_ID -p 80:80") { c -> 
+    //         sh 'curl localhost'
+    //     }
+    // }
 
-    stage("Push") {
-        docker.withRegistry('https://gitlab.com/Abdoulfatah12/mugen-project/container_registry') { 
-            img.push 'latest'
-            img.push()
-        }
-    }
+    // stage("Push") {
+    //     docker.withRegistry('https://gitlab.com/Abdoulfatah12/mugen-project/container_registry') { 
+    //         img.push 'latest'
+    //         img.push()
+    //     }
+    // }
 
 
 }
