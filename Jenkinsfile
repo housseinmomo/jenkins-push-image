@@ -9,12 +9,12 @@ node {
 
     // img : contient l'image qui sera creer au cours de cette etape
      
-    img = stage("Build") {
+    stage("Build") {
         docker.build("$imageProject" , ".")
     }
 
     stage("Run") {
-       docker.image("$img").withRun("--name image-$BUILD_ID -p 9090:90") {
+       docker.image("$imageProject").withRun("--name image-$BUILD_ID -p 9090:90") {
             c -> 
                 sh 'docker ps'
                 sh 'curl localhost:9090'
