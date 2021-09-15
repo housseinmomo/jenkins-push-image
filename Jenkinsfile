@@ -11,7 +11,6 @@ node {
      
     img = stage("Build") {
         docker.build("$imageProject" , ".")
-        sh 'docker ps -a'
     }
 
     stage("Run") {
