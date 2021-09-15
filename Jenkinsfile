@@ -1,5 +1,5 @@
 node {
-    def registeryProject = 'https://gitlab.com/Abdoulfatah12/mugen-project/container_registry'
+    def registeryProject = "https://gitlab.com/Abdoulfatah12/mugen-project/container_registry"
     def imageProject = '${registeryProject}:version-${env.BUILD_ID}'
 
     stage("Checkout") {
@@ -8,7 +8,7 @@ node {
 
     // // img : contient l'image qui sera creer au cours de cette etape
     def img = stage("Build") {
-         docker.Build("$registeryProject" , ".")
+         docker.build("$registeryProject" , ".")
     }
 
     // stage("Run") {
