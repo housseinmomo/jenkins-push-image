@@ -9,7 +9,7 @@ node {
 
     // img : contient l'image qui sera creer au cours de cette etape
      
-    img = stage("Build") {
+    stage("Build") {
         docker.build("$imageProject" , ".")
     }
 
