@@ -8,7 +8,9 @@ node {
 
     // // img : contient l'image qui sera creer au cours de cette etape
     def img = stage("Build") {
-         docker.build("$imageProject" , ".")
+        sh 'docker image rm -f $imageProject'
+        docker.build("$imageProject" , ".")
+        sh 'docker ps -a'
     }
 
     // stage("Run") {
