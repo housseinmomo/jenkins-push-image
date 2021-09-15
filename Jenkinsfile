@@ -14,7 +14,7 @@ node {
     }
 
     stage("Run") {
-       docker.image(img).withRun("--name image-$BUILD_ID -p 9090:90") {
+       docker.image("$img").withRun("--name image-$BUILD_ID -p 9090:90") {
             c -> 
                 sh 'docker ps'
                 sh 'curl localhost:9090'
