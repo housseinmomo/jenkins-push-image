@@ -14,8 +14,8 @@ node {
     }
 
     stage("Run") {
-        img.withRun("--name image-push-$BUILD_ID -p 9090:90") { c -> 
-            sh 'localhost:9090'
+        img.withRun("--name image-push-$BUILD_ID -p 8081:90") { c -> 
+            sh 'localhost:8081'
         }
     }
 
