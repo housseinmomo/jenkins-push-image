@@ -8,7 +8,7 @@ node {
 
     // // img : contient l'image qui sera creer au cours de cette etape
     def img = stage("Build") {
-         docker.build("$registeryProject" , ".")
+         docker.build("$imageProject" , ".")
     }
 
     // stage("Run") {
