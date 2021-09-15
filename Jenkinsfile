@@ -18,6 +18,7 @@ node {
             c -> 
                 sh 'docker ps'
                 sh 'curl localhost:9090'
+                echo 'run success'
         }
     }
 
