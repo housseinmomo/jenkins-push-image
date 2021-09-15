@@ -1,5 +1,5 @@
 node {
-    def registeryProject = "https://gitlab.com/Abdoulfatah12/mugen-project/container_registry"
+    def registeryProject = "mugen-project/container_registry"
     def imageProject = "${registeryProject}:version-${env.BUILD_ID}"
 
     stage("Checkout") {
