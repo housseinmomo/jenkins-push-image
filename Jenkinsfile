@@ -14,7 +14,7 @@ node {
     }
 
     stage("Run") {
-       img.withRun("--name image-$BUILD_ID -p 9090:90") {
+       docker.image("$imageProject").withRun("--name image-$BUILD_ID -p 9090:90") {
             c -> 
                 sh 'docker ps'
                 // sh 'curl localhost:9090'
@@ -24,8 +24,8 @@ node {
 
     stage("Push") {
         docker.withRegistry('registry.gitlab.com/abdoulfatah12/mugen-project') {  
-            img.push 'latest' 
-            img.push()
+            imageProject.push 'latest' 
+            imageProject.push()
         }
     }
 
