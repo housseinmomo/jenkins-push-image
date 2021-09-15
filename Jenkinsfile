@@ -23,7 +23,7 @@ node {
     }
 
     stage("Push") {
-        docker.withRegistry('https://gitlab.com/Abdoulfatah12/mugen-project/container_registry') {  
+        docker.withRegistry('registry.gitlab.com/abdoulfatah12/mugen-project') {  
             img.push 'latest' 
             img.push()
         }
