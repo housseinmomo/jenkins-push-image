@@ -8,7 +8,7 @@ node {
     }
     
     stage("config") {
-        sh 'apt-get update'
+        sh 'sudo apt-get update'
     }
   
     
