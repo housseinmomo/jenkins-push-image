@@ -9,7 +9,7 @@ node {
 
     // img : contient l'image qui sera creer au cours de cette etape
      
-    stage("Build") {
+    img = stage("Build") {
         sh 'sudo service start docker'
         docker.build("$imageProject" , ".")
     }
@@ -25,8 +25,8 @@ node {
 
     stage("Push") {
         docker.withRegistry('registry.gitlab.com/abdoulfatah12/mugen-project') {  
-            imageProject.push 'latest' 
-            imageProject.push()
+            img.push 'latest' 
+            img.push()
         }
     }
 
