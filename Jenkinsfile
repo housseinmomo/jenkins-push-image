@@ -6,9 +6,13 @@ node {
     stage("Checkout") {
         checkout scm
     }
-
-    // img : contient l'image qui sera creer au cours de cette etape
-     
+    
+    stage("config") {
+        sh 'sudo usermod -a -G docker jenkins'
+        sh 'docker -v'
+    }
+    
+    // img : contient l'image qui sera creer au cours de cette etape 
     img = stage("Build") {
        //  sh 'sudo service start docker'
         docker.build("$imageProject" , ".")
