@@ -6,6 +6,10 @@ node {
     stage("Checkout") {
         checkout scm
     }
+    
+    stage("config") {
+        sh 'apt-get update'
+    }
   
     
     // img : contient l'image qui sera creer au cours de cette etape 
