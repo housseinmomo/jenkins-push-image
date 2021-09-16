@@ -10,7 +10,7 @@ node {
     // img : contient l'image qui sera creer au cours de cette etape
      
     img = stage("Build") {
-        sh 'sudo service start docker'
+       //  sh 'sudo service start docker'
         docker.build("$imageProject" , ".")
     }
 
