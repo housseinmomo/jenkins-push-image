@@ -23,7 +23,7 @@ node {
     }
 
     stage("Push") {
-        docker.withRegistry('https://gitlab.com') {  
+        docker.withRegistry('https://gitlab.com' , 'Abdoulfatah12/Malyounhouss123') {  
             // img.push 'latest' 
             img.push("version-$BUILD_ID")
             // sh "sudo docker rm -f $imageProject"
