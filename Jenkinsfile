@@ -25,7 +25,7 @@ node {
     stage("Push") {
        // docker.withRegistry('https://gitlab.com' , 'Abdoulfatah12/Malyounhouss123') {  
             
-             sh 'docker login registry.gitlab.com -u abdoulfatah123 -p malyoun123'
+             sh 'docker login registry.hub.docker.com -u abdoulfatah123 -p malyoun123'
         
              sh "docker push $imageProject" 
             
