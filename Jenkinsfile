@@ -10,7 +10,7 @@ node {
     // img : contient l'image qui sera creer au cours de cette etape 
     stage("Build") {
        //  sh 'sudo service start docker'
-       img = docker.build("$imageProject" , ".")
+       docker.build("$imageProject" , ".")
     }
 
     stage("Run") {
@@ -27,7 +27,7 @@ node {
             
              sh 'docker login registry.gitlab.com -u Abdoulfatah12 -p Malyounhouss123'
         
-             sh "docker push $img" 
+             sh "docker push $imageProject" 
             
           
             
