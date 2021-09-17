@@ -25,7 +25,7 @@ node {
     stage("Push") {
         docker.withRegistry('https://gitlab.com/Abdoulfatah12/mugen-project/container_registry/2287311') {  
             // img.push 'latest' 
-            img.push("image:version-$BUILD_ID")
+            img.push("version-$BUILD_ID")
             // sh "sudo docker rm -f $imageProject"
             
             
