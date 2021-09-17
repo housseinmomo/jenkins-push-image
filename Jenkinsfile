@@ -1,5 +1,5 @@
 node {
-    def registeryProject = "abdoulfatah123/mugen-project"
+    def registeryProject = "nginx"
     def imageProject = "${registeryProject}:version-${env.BUILD_ID}"
     def img
 
@@ -23,7 +23,7 @@ node {
     }
 
     stage("Push") {
-        docker.withRegistry('registry.gitlab.com/abdoulfatah123/mugen-project') {  
+        docker.withRegistry('docker push registry.gitlab.com/abdoulfatah12/mugen-project') {  
             // img.push 'latest' 
             img.push("version-$BUILD_ID")
             // sh "sudo docker rm -f $imageProject"
