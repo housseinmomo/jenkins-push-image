@@ -27,7 +27,7 @@ node {
             
              sh 'docker login registry.gitlab.com -u Abdoulfatah12 -p Malyounhouss123'
         
-             sh "docker push registry.gitlab.com/Mugen-Project/$img" 
+             sh "docker push $img" 
             
           
             
