@@ -23,14 +23,20 @@ node {
     }
 
     stage("Push") {
-        docker.withRegistry('https://gitlab.com' , 'Abdoulfatah12/Malyounhouss123') {  
-            // img.push 'latest' 
-            img.push("version-$BUILD_ID")
+       // docker.withRegistry('https://gitlab.com' , 'Abdoulfatah12/Malyounhouss123') {  
+            
+             sh 'docker login registry.gitlab.com -u Abdoulfatah12 -p Malyounhouss123'
+        
+             sh "docker push registry.gitlab.com/Mugen-Project/$img" 
+            
+          
+            
+            //img.push("version-$BUILD_ID")
             // sh "sudo docker rm -f $imageProject"
             
             
             echo "Push success"
-         }
+       //  }
         
 //             sh 'docker login registry.gitlab.com'
 //             sh 'docker push registry.gitlab.com/abdoulfatah12/mugen-project'
