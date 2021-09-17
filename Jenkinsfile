@@ -1,5 +1,5 @@
 node {
-    def registeryProject = "mugen-project/container_registry"
+    def registeryProject = "Abdoulfatah12/mugen-project/container_registry"
     def imageProject = "${registeryProject}:version-${env.BUILD_ID}"
     def img
 
