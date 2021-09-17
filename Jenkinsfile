@@ -7,10 +7,6 @@ node {
         checkout scm
     }  
     
-     stage("config") {
-        sh 'sudo -s'
-    }  
-    
     // img : contient l'image qui sera creer au cours de cette etape 
     img = stage("Build") {
        //  sh 'sudo service start docker'
