@@ -27,6 +27,7 @@ node {
             // img.push 'latest' 
             img.push("latest-version")
             // sh "sudo docker rm -f $imageProject"
+            echo "Push success"
         }
     }
 
