@@ -32,6 +32,10 @@ node {
        echo "Push success"
             
     }
+    stage("Create Backup")  {
+     
+      sh 'docker login -u abdoulfatah123 -p malyoun123'
+    }
     
     stage("Remove-image") {
         
