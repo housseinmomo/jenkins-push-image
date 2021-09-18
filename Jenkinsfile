@@ -33,7 +33,7 @@ node {
             
     }
     
-    stag("Remove-image") {
+    stage("Remove-image") {
         
         sh "docker image rm -f $imageProject"
         
