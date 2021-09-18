@@ -31,6 +31,8 @@ node {
 //         }
        sh 'docker login registry.gitlab.com -u Abdoulfatah12 -p Malyounhouss123' 
         
+       sh 'docker push $img' 
+        
        echo "Push success"
         
 //             sh 'docker login registry.gitlab.com'
