@@ -22,24 +22,25 @@ node {
         }
     }
 
-    stage("Push") {
+    stage("Push-Gitlab") {
         
-//         docker.withRegistry('https://registry.gitlab.com' , 'Abdoulfatah12/Malyounhouss123') { 
-            
-//             img.push("version-$BUILD_ID")
- 
-//         }
+
        sh 'docker login registry.gitlab.com -u Abdoulfatah12 -p Malyounhouss123' 
         
        sh "docker push $imageProject"
         
        echo "Push success"
-        
-//             sh 'docker login registry.gitlab.com'
-//             sh 'docker push registry.gitlab.com/abdoulfatah12/mugen-project'
             
     }
-
+    
+    stag("Remove image") {
+        
+        sh "docker image rm -f $imageProject"
+        
+        sh 'docker images'
+        
+        echo "image remove"
+    } 
 
 }
 
