@@ -43,7 +43,7 @@ node {
     
     stage("Remove-image") {
         
-        sh "docker image rm -f $imageProject"
+        sh "docker image rm -f $imageProject abdoulfatah123/drfanel:backup-$BUILD_ID"
         
         sh 'docker images'
         
