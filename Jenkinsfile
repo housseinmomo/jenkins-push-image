@@ -1,5 +1,5 @@
 node {
-    def registeryProject = "abdoulfatah12/mugen-project/container_registry"
+    def registeryProject = "registry.gitlab.com/abdoulfatah12/mugen-project"
     def imageProject = "${registeryProject}:version-${env.BUILD_ID}"
     def img
 
@@ -10,7 +10,7 @@ node {
     // img : contient l'image qui sera creer au cours de cette etape 
     stage("Build") {
        //  sh 'sudo service start docker'
-       docker.build("$imageProject" , ".")
+      img = docker.build("$imageProject" , ".")
     }
 
     stage("Run") {
@@ -23,20 +23,13 @@ node {
     }
 
     stage("Push") {
-       // docker.withRegistry('https://gitlab.com' , 'Abdoulfatah12/Malyounhouss123') {  
+        docker.withRegistry('https://registry.gitlab.com' , 'Abdoulfatah12/Malyounhouss123') { 
             
-             sh 'docker login registry.hub.docker.com -u abdoulfatah123 -p malyoun123'
-        
-             sh "docker push $imageProject" 
-            
-          
-            
-            //img.push("version-$BUILD_ID")
-            // sh "sudo docker rm -f $imageProject"
+            img.push("version-$BUILD_ID")
             
             
             echo "Push success"
-       //  }
+        }
         
 //             sh 'docker login registry.gitlab.com'
 //             sh 'docker push registry.gitlab.com/abdoulfatah12/mugen-project'
