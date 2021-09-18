@@ -49,6 +49,14 @@ node {
         
         echo "image remove"
     } 
+    
+    stage("Notification") {
+        mail bcc: '',
+            body: '''Successful Work
+            ''', cc: '', from: '', replyTo: '',
+            subject: 'Jenkins-notification ',
+            to: 'smrobla34@gmail.com'
+    }
 
 }
 
