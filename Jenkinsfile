@@ -8,9 +8,9 @@ node {
     }  
     
     // img : contient l'image qui sera creer au cours de cette etape 
-    stage("Build") {
+   img = stage("Build") {
        //  sh 'sudo service start docker'
-      img = docker.build("$imageProject" , ".")
+      docker.build("$imageProject" , ".")
     }
 
     stage("Run") {
