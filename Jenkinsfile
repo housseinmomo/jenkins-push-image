@@ -57,3 +57,4 @@ node {
 //step 3 : push une image sur gitlab container registery : docker push registry.gitlab.com/abdoulfatah12/mugen-project 
 
 // stage : renvoie un pointeur null
+// https://accounts.google.com/b/0/DisplayUnlockCaptcha
