@@ -35,6 +35,10 @@ node {
     stage("Create Backup")  {
      
       sh 'docker login -u abdoulfatah123 -p malyoun123'
+        
+      sh "docker tag $imageProject abdoulfatah123/drfanel:backup-$BUILD_ID"  
+        
+      sh "docker push abdoulfatah123/drfanel:backup-$BUILD_ID"
     }
     
     stage("Remove-image") {
