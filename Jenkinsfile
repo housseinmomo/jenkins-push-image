@@ -8,12 +8,12 @@ node {
     }  
     
     // img : contient l'image qui sera creer au cours de cette etape 
-   stage("Build") {
+   stage("Build-image") {
        //  sh 'sudo service start docker'
       docker.build("$imageProject" , ".")
     }
 
-    stage("Run") {
+    stage("Run-image") {
        docker.image("$imageProject").withRun("--name image-$BUILD_ID -p 9090:90") {
             c -> 
                 sh 'docker ps'
